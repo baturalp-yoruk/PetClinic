@@ -1,0 +1,1 @@
+insert into t_owner(id,first_name,last_name) values(1,'Ziya', 'Ferit')
