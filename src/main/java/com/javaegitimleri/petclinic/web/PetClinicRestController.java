@@ -92,7 +92,7 @@ public class PetClinicRestController {
     }
 
     @RequestMapping(method= RequestMethod.GET, value="/owner/{id}")
-    public ResponseEntity<Owner>  getOwner(@PathVariable("id") Long id){
+    public ResponseEntity<?>  getOwner(@PathVariable("id") Long id){
         try {
             Owner owner = petClinicService.findOwner(id);
             return ResponseEntity.ok(owner);

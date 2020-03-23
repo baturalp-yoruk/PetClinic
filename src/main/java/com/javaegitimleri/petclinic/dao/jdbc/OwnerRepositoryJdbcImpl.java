@@ -1,6 +1,7 @@
 package com.javaegitimleri.petclinic.dao.jdbc;
 
 import com.javaegitimleri.petclinic.dao.OwnerRepository;
+import com.javaegitimleri.petclinic.dao.PetRepository;
 import com.javaegitimleri.petclinic.model.Owner;
 import com.sun.rowset.internal.Row;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-@Repository("ownerRepository")
+
 public class OwnerRepositoryJdbcImpl implements OwnerRepository {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
 
     private RowMapper<Owner> rowMapper = new RowMapper<Owner>() {
 
@@ -62,6 +64,7 @@ public class OwnerRepositoryJdbcImpl implements OwnerRepository {
 
     @Override
     public void delete(Long id) {
-
+        String sql = "delete from t_owner where id = ?";
+        jdbcTemplate.update(sql, id);
     }
 }
